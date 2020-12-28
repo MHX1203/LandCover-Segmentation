@@ -1,0 +1,72 @@
+# 数据
+data:
+  root_dir: /home/mhxin/桌面/train_data
+
+  target_size: 256
+
+  num_classes: 8
+
+  test_size: 0.2
+
+  class_dicts: 
+    0: 建筑
+    1: 耕地
+    2: 林地
+    3: 水体
+    4: 道路
+    5: 草地
+    6: 其他
+    7: 未标注区域
+
+  color_dicts: 
+    0: ef476f
+    1: ffd166
+    2: 06d6a0
+    3: 118ab2
+    4: 118ab2
+    5: 83c5be
+    6: 006d77
+    7: 073b4c
+  
+  augs: True
+
+# 模型
+model:
+  model_name: nested_unet
+
+  in_channels: 3
+
+
+
+# 训练
+train:
+  start_epoch: 0
+
+  epoch: 4
+
+  batch_size: 16
+
+  num_workers: 8
+
+  use_gpu: True
+
+  use_sgd: True
+
+  resume: 
+
+  lr: 0.01
+
+  momentum: 0.9
+
+  weight_decay: 5e-5
+
+  checkpoints: ./checkpoints
+
+  val_interval: 1
+
+  log_interval: 10
+
+  log_dir: ./logs
+  
+  # CE, FL
+  loss: FL
